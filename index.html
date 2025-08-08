@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bakshana Tinder</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="app">
+        <h1>🍛 Bakshana Tinder</h1>
+        
+        <div class="card-container">
+            <!-- Active Card -->
+            <div class="card" id="active-card">
+                <div class="card-header"></div>
+                <div class="card-footer">
+                    <h2 class="food-name"></h2>
+                    <p class="food-desc"></p>
+                </div>
+            </div>
+            
+            <!-- Next Card (peeking behind) -->
+            <div class="card next-card"></div>
+        </div>
+
+        <div class="actions">
+            <button id="dislike">❌</button>
+            <button id="super-like">⚡</button>
+            <button id="like">❤️</button>
+        </div>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+</html>
