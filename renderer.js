@@ -19,7 +19,32 @@ const foods = [
         name: "Puttu-Kadala",
         desc: "Basic but dependable. Unlike you.",
         img: "./pictures for tinder/Puttu kadala.jpg"
-    }
+    },
+    {
+        name: "Pazhampori",
+        desc: "Golden, crispy, and dangerously addictive - just like your toxic ex.",
+        img: "./pictures for tinder/Pazhampori.jpg"
+    },
+    {
+        name: "Uzhunnu-Vada",
+        desc: "The OG donut of Kerala - minus the sweetness, plus all the sambar-drama. Crispy outside, fluffy inside, and always judging your life choices from the banana leaf.",
+        img: "./pictures for tinder/Uzhunnu vada.jpg"
+    },
+    {
+        name: "Porotta",
+        desc: "The ultimate breakup food - layers of drama, folds of regret. Will mess up your plate, your diet, and your life. Tastes best at 2am with beef curry.",
+        img: "./pictures for tinder/Porotta.jpg"
+    },
+    {
+        name: "Paayasam",
+        desc: "Kerala's sweetest heartbreaker - will cling to you like amma's guilt trips.",
+        img: "./pictures for tinder/Paayasam.jpg"
+    },
+    {
+        name: "Mandhi",
+        desc: "Smoky, spicy Malabari heartthrob - the only date that comes with its own mood lighting",
+        img: "./pictures for tinder/Mandhi.jpg"
+    },        
 ];
 
 let currentIndex = 0;
