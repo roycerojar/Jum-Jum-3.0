@@ -47,6 +47,17 @@ const foods = [
     },        
 ];
 
+// Shuffle the foods array
+let shuffledFoods = [...foods];
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+shuffledFoods = shuffleArray(shuffledFoods);
+
 let currentIndex = 0;
 const activeCard = document.getElementById('active-card');
 let isDragging = false;
@@ -64,7 +75,7 @@ document.addEventListener('mouseup', endDrag);
 document.addEventListener('touchend', endDrag);
 
 function loadCard(index) {
-    const food = foods[index];
+    const food = shuffledFoods[index];
     const header = activeCard.querySelector('.card-header');
     const name = activeCard.querySelector('.food-name');
     const desc = activeCard.querySelector('.food-desc');
@@ -134,10 +145,15 @@ function swipeLeft() {
     }, 500);
 }
 
-// Button controls
+
 document.getElementById('like').addEventListener('click', swipeRight);
 document.getElementById('dislike').addEventListener('click', swipeLeft);
 document.getElementById('super-like').addEventListener('click', () => {
     alert(`Super Liked ${foods[currentIndex].name}! ഇത് പൊളി!`);
     swipeRight();
+});
+
+// Leaderboard button
+document.getElementById('leaderboard-btn').addEventListener('click', () => {
+    window.open('leaderboard.html', '_blank');
 });
