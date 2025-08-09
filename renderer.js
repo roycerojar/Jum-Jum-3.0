@@ -1,3 +1,42 @@
+// Audio arrays for different swipe types
+const acceptSounds = [
+    "./sounds/match1.mp3",
+    "./sounds/match2.mp3",
+    "./sounds/match3.mp3",
+    "./sounds/match4.mp3"
+];
+
+const rejectSounds = [
+    "./sounds/reject1.mp3",
+    "./sounds/reject2.mp3",
+    "./sounds/reject3.mp3",
+    "./sounds/reject4.mp3"
+];
+
+const superLikeSounds = [
+    "./sounds/superlike1.mp3",
+    "./sounds/superlike2.mp3",
+    "./sounds/superlike3.mp3"
+];
+
+function playRandomSound(soundArray) {
+    const randomIndex = Math.floor(Math.random() * soundArray.length);
+    const audio = new Audio(soundArray[randomIndex]);
+    audio.volume = 0.5;
+    audio.play().catch(err => console.log('Audio play failed:', err));
+}
+
+function showMessage(message, isMatch) {
+    const messageEl = document.createElement('div');
+    messageEl.className = `swipe-message ${isMatch ? 'match' : 'roast'}`;
+    messageEl.textContent = message;
+    document.body.appendChild(messageEl);
+    
+    setTimeout(() => {
+        messageEl.remove();
+    }, 3000);
+}
+
 // Food data with placeholder images
 const foods = [
     {
@@ -129,6 +168,12 @@ function endDrag(e) {
 
 function swipeRight() {
     activeCard.classList.add('swipe-right');
+    const food = shuffledFoods[currentIndex];
+    
+    // Play accept sound and show message
+    playRandomSound(acceptSounds);
+    showMessage(`❤️ ${food.name} liked you back! Sambar ready aano?`, true);
+    
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % foods.length;
         activeCard.classList.remove('swipe-right');
@@ -138,6 +183,12 @@ function swipeRight() {
 
 function swipeLeft() {
     activeCard.classList.add('swipe-left');
+    const food = shuffledFoods[currentIndex];
+    
+    // Play reject sound and show message
+    playRandomSound(rejectSounds);
+    showMessage(`${food.name} says: "Venda, venda!"`, false);
+    
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % foods.length;
         activeCard.classList.remove('swipe-left');
@@ -149,7 +200,9 @@ function swipeLeft() {
 document.getElementById('like').addEventListener('click', swipeRight);
 document.getElementById('dislike').addEventListener('click', swipeLeft);
 document.getElementById('super-like').addEventListener('click', () => {
-    alert(`Super Liked ${foods[currentIndex].name}! ഇത് പൊളി!`);
+    const food = shuffledFoods[currentIndex];
+    playRandomSound(superLikeSounds);
+    showMessage(`⭐ Super Match! ${food.name} says: "നമ്മൾ ഒന്നിച്ച് പോകാം!" ⭐`, true);
     swipeRight();
 });
 
