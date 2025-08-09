@@ -166,13 +166,39 @@ function endDrag(e) {
     }
 }
 
+// Arrays of random comments for each action
+const acceptComments = [
+    "❤️ {name} liked you back! Sambar ready aano?",
+    "Perfect match! {name} is waiting for you!",
+    "Wow! {name} thinks you have good taste!",
+    "The kitchen is calling - {name} wants to meet you!",
+    "Time to celebrate with some {name}!",
+    "{name} says you're the one! 💕",
+    "Match made in heaven! {name} is yours!"
+];
+
+const rejectComments = [
+    "{name} says: 'Venda, venda!'",
+    "Looks like {name} isn't on your menu!",
+    "{name} will find someone else to appreciate it!",
+    "No worries, {name} wasn't that hungry anyway!",
+    "{name} says it's not you, it's them!",
+    "Better luck next time, {name} moves on!",
+    "That's okay, more {name} for others!"
+];
+
+function getRandomComment(comments, foodName) {
+    const randomComment = comments[Math.floor(Math.random() * comments.length)];
+    return randomComment.replace("{name}", foodName);
+}
+
 function swipeRight() {
     activeCard.classList.add('swipe-right');
     const food = shuffledFoods[currentIndex];
     
-    // Play accept sound and show message
+    // Play accept sound and show random accept message
     playRandomSound(acceptSounds);
-    showMessage(`❤️ ${food.name} liked you back! Sambar ready aano?`, true);
+    showMessage(getRandomComment(acceptComments, food.name), true);
     
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % foods.length;
@@ -185,9 +211,9 @@ function swipeLeft() {
     activeCard.classList.add('swipe-left');
     const food = shuffledFoods[currentIndex];
     
-    // Play reject sound and show message
+    // Play reject sound and show random reject message
     playRandomSound(rejectSounds);
-    showMessage(`${food.name} says: "Venda, venda!"`, false);
+    showMessage(getRandomComment(rejectComments, food.name), false);
     
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % foods.length;
