@@ -67,7 +67,7 @@ For Software:
 
 # Screenshots
 https://drive.google.com/drive/folders/1DW5oSNmVAJ62CCA1QZS2Fc8YWmnqIG6W?usp=sharing
-#screen recordings
+# Screen recordings
 https://drive.google.com/drive/folders/1VP9nVUYsO7m-Y9Cl8s5S-kYN5zmr7Sq8?usp=drive_link
 
 # Features
@@ -139,6 +139,7 @@ Made with ❤️ at TinkerHub Useless Projects
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
 ![Static Badge](https://img.shields.io/badge/UselessProjects--25-25?link=https%3A%2F%2Fwww.tinkerhub.org%2Fevents%2FQ2Q1TQKX6Q%2FUseless%2520Projects)
+
 
 
 
